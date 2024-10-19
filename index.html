@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambiar Imagen</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        img {
+            width: 300px;
+            height: 300px;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <img id="image" src="https://bambu-mobile.com/wp-content/uploads/2022/06/Lenguajes-de-programacion-del-futuro-programacion-lenguajes-de-programacion-python-JS-C-Java-scaled.jpg" alt="Imagen">
+    <button id="changeImage">Cambiar Imagen</button>
+
+    <script>
+        const imageElement = document.getElementById('image');
+        const button = document.getElementById('changeImage');
+
+        const images = [
+            'https://bambu-mobile.com/wp-content/uploads/2022/06/Lenguajes-de-programacion-del-futuro-programacion-lenguajes-de-programacion-python-JS-C-Java-scaled.jpg',
+            'https://techkrowd.com/wp-content/uploads/2022/08/banner_blog_programacion-1400x742.jpg',
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRczi-fI3I9TCSfGqhuJVK15EIYd3rA-N04dw&s'
+        ];
+
+        let currentIndex = 0;
+
+        button.addEventListener('click', function() {
+            currentIndex = (currentIndex + 1) % images.length; // Cambia al siguiente índice
+            imageElement.src = images[currentIndex]; // Cambia la imagen
+        });
+    </script>
+
+</body>
+</html>
